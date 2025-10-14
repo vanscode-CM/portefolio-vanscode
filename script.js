@@ -6,7 +6,7 @@ const data = {
     labels: ['HTML', 'CSS', 'JavaScript', 'Python', 'PHP'],
     datasets: [{
         label: 'Niveau de Maîtrise (%)',
-        data: [80, 80, 70, 60, 50], // Pourcentages de maîtrise
+        data: [80, 80, 95, 90, 50], // Pourcentages de maîtrise
         backgroundColor: [
             'rgba(255, 99, 132, 0.6)', // Rouge pour HTML
             'rgba(54, 162, 235, 0.6)', // Bleu pour CSS
