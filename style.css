@@ -292,13 +292,97 @@ textarea:focus {
     justify-content: center;
     align-items: center;
    }
-   .chart-container {
+.chart-container {
     position: relative;
-    background: rgba(255, 255, 255, 0);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    height: 90vh;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 950px;
+    height: 70vh;
+    min-height: 480px;
     text-align: center;
-  }
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.chart-container:hover {
+    border-color: rgba(0, 170, 255, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 170, 255, 0.15);
+}
+
+/* Custom cursor styling */
+.custom-cursor {
+    width: 10px;
+    height: 10px;
+    background-color: #00AAFF;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference;
+    transition: transform 0.15s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px #00AAFF, 0 0 24px #00AAFF;
+}
+
+.custom-cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #00AAFF;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+}
+
+/* Hover active state for links and buttons */
+.custom-cursor.hovered {
+    width: 16px;
+    height: 16px;
+    background-color: #00ffcc;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+}
+
+.custom-cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    border-color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.05);
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.4);
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 1025px) {
+    body, a, button, input, textarea, .social-btn, .project-card {
+        cursor: none !important;
+    }
+}
+
+/* Hide custom cursor on mobile touch screens */
+@media (max-width: 1024px) {
+    .custom-cursor, .custom-cursor-ring {
+        display: none !important;
+    }
+    body {
+        cursor: auto !important;
+    }
+    .chart-container {
+        height: auto;
+        min-height: 380px;
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* GSAP Scroll Reveal utility */
+.reveal-hidden {
+    opacity: 0 !important;
+    transform: translateY(40px);
+}

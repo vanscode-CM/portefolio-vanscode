@@ -5,7 +5,72 @@
     <meta name="google-site-verification" content="Mi19NCbksNwmq0c7m7HYi5oNu6pi1f8AjrqrcI5qZvI" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VansCode - Développeur Web Full Stack</title>
+    <title>VansCode | Développeur Web Full Stack | Douala, Cameroun</title>
+    
+    <!-- Meta SEO de base -->
+    <meta name="description" content="Portfolio de VansCode (Simo Guy Yvan), Développeur Web Full Stack basé à Douala, Cameroun. Spécialisé en React, TypeScript, Node.js, NestJS, PostgreSQL et MongoDB." />
+    <meta name="keywords" content="VansCode, Simo Guy Yvan, Développeur Web, Full Stack, Douala, Cameroun, React, TypeScript, Node.js, NestJS, PostgreSQL, MongoDB, création site web, portfolio" />
+    <meta name="author" content="VansCode (Simo Guy Yvan)" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html" />
+    
+    <!-- Favicon moderne (Emoji SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html" />
+    <meta property="og:title" content="VansCode | Développeur Web Full Stack | Douala, Cameroun" />
+    <meta property="og:description" content="Découvrez le portfolio de VansCode, développeur web Full Stack spécialisé dans les technologies modernes : React, Node.js, NestJS, PostgreSQL, MongoDB." />
+    <meta property="og:image" content="https://vanscode-cm.github.io/portefolio-vanscode/simo_guy_yvan_profil.png" />
+    <meta property="og:image:alt" content="Simo Guy Yvan - VansCode" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="VansCode Portfolio" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html" />
+    <meta name="twitter:title" content="VansCode | Développeur Web Full Stack | Douala, Cameroun" />
+    <meta name="twitter:description" content="Découvrez le portfolio de VansCode, développeur web Full Stack spécialisé dans les technologies modernes : React, Node.js, NestJS, PostgreSQL, MongoDB." />
+    <meta name="twitter:image" content="https://vanscode-cm.github.io/portefolio-vanscode/simo_guy_yvan_profil.png" />
+    <meta name="twitter:creator" content="@yvan_guy75549" />
+
+    <!-- Données structurées JSON-LD (Schema Person & WebSite) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Simo Guy Yvan",
+      "additionalName": "VansCode",
+      "jobTitle": "Développeur Web Full Stack",
+      "url": "https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html",
+      "image": "https://vanscode-cm.github.io/portefolio-vanscode/simo_guy_yvan_profil.png",
+      "sameAs": [
+        "https://github.com/vanscode-CM",
+        "https://www.linkedin.com/in/yvan-guy-9a68ab346",
+        "https://twitter.com/@yvan_guy75549"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Douala",
+        "addressCountry": "CM"
+      },
+      "knowsAbout": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "NestJS",
+        "PostgreSQL",
+        "MongoDB",
+        "Développement Web",
+        "UI/UX Design",
+        "API Development"
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
@@ -44,7 +109,7 @@
     <!-- Header -->
     <header class="fixed w-full z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <strong href="#" class="font-['Pacifico'] text-2xl text-white glow">VansCode</strong>
+            <a href="#" class="font-['Pacifico'] text-2xl text-white glow">VansCode</a>
 
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="nav-link text-white hover:text-secondary transition-colors">Intro</a>
@@ -112,7 +177,7 @@
                         </div>
                         <div
                             class="card absolute inset-2  bg-slate-800 flex items-center justify-center overflow-hidden">
-                            <img src="simo_guy_yvan_profil.png" alt="SIMO GUY YVAN " class="w-full h-full object-cover"
+                            <img src="simo_guy_yvan_profil.png" alt="Simo Guy Yvan (VansCode) - Développeur Web Full Stack à Douala, Cameroun" class="w-full h-full object-cover"
                                 style="z-index: 10;" />
                         </div>
                         <div class="absolute -bottom-6 -right-6 w-24 h-24 hexagon bg-secondary/20 backdrop-blur-sm">
@@ -129,7 +194,7 @@
     <!-- Compétences Section -->
     <section id="competences" class="py-20 bg-slate-800">
         <div class="chart-container w-full h-96 ">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Mes Compétences en Développement</h1>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Mes Compétences en Développement</h2>
             <canvas id="competencesChart"></canvas>
         </div>
     </section>
@@ -495,8 +560,9 @@
     </footer>
 
     <script src="particles.min.js"></script>
+    <script src="gsap.min.js"></script>
     <script src="chart.js"></script>
-   <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
