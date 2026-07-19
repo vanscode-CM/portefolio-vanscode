@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Polly Room
+* source:	https://sketchfab.com/3d-models/low-polly-room-677aad9d4ea6455692541c34f4955b0f
+* author:	Ayar Hlaine (https://sketchfab.com/ayarhlaine.dev)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Polly Room" (https://sketchfab.com/3d-models/low-polly-room-677aad9d4ea6455692541c34f4955b0f) by Ayar Hlaine (https://sketchfab.com/ayarhlaine.dev) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

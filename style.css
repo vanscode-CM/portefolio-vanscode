@@ -385,4 +385,41 @@ textarea:focus {
 .reveal-hidden {
     opacity: 0 !important;
     transform: translateY(40px);
-}
+}
+
+/* --- Styles pour l'expérience 3D --- */
+.panel-3d {
+    background: rgb(15, 23, 42); /* Fond opaque au lieu de transparent */
+    border: 1px solid rgba(0, 170, 255, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.1);
+    color: white;
+    overflow-y: auto;
+    height: 100%;
+    pointer-events: auto; /* INDISPENSABLE pour cliquer, scroller et taper ! */
+}
+
+/* Forcer l'affichage mobile (1 colonne) pour le téléphone en 3D (400px de large) */
+#contact.panel-3d .lg\:grid-cols-2,
+#contact.panel-3d .md\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+#contact.panel-3d {
+    padding: 20px; /* Moins de padding pour l'écran de téléphone */
+}
+
+
+.panel-3d::-webkit-scrollbar {
+    width: 6px;
+}
+.panel-3d::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 4px;
+}
+.panel-3d::-webkit-scrollbar-thumb {
+    background: #00AAFF;
+    border-radius: 4px;
+}
+

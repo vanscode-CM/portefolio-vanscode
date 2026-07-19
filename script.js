@@ -41,41 +41,41 @@ if (window.innerWidth > 1024) {
     });
 }
 
-// GSAP Scroll Reveal logic using IntersectionObserver
-const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.05,
-};
+// -- IntersectionObserver logic disabled for 3D experience --
+// const observerOptions = {
+//     root: null,
+//     rootMargin: "0px",
+//     threshold: 0.05,
+// };
 
-// Select reveal elements
-const revealTargets = document.querySelectorAll('.project-card, .chart-container, #contact form, #contact > div > div > div, #hero h1, #hero p, #hero .flex.space-x-4, #hero .test');
+// // Select reveal elements
+// const revealTargets = document.querySelectorAll('.project-card, .chart-container, #contact form, #contact > div > div > div, #hero h1, #hero p, #hero .flex.space-x-4, #hero .test');
 
-revealTargets.forEach(el => {
-    el.classList.add('reveal-hidden');
-});
+// revealTargets.forEach(el => {
+//     el.classList.add('reveal-hidden');
+// });
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            gsap.to(entry.target, {
-                opacity: 1,
-                y: 0,
-                duration: 0.9,
-                ease: "power3.out",
-                onComplete: () => {
-                    // Clear transform styles on complete to prevent conflicts with CSS hovers
-                    entry.target.style.transform = '';
-                    entry.target.style.opacity = '';
-                    entry.target.classList.remove('reveal-hidden');
-                }
-            });
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+// const revealObserver = new IntersectionObserver((entries) => {
+//     entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//             gsap.to(entry.target, {
+//                 opacity: 1,
+//                 y: 0,
+//                 duration: 0.9,
+//                 ease: "power3.out",
+//                 onComplete: () => {
+//                     // Clear transform styles on complete to prevent conflicts with CSS hovers
+//                     entry.target.style.transform = '';
+//                     entry.target.style.opacity = '';
+//                     entry.target.classList.remove('reveal-hidden');
+//                 }
+//             });
+//             revealObserver.unobserve(entry.target);
+//         }
+//     });
+// }, observerOptions);
 
-revealTargets.forEach(el => revealObserver.observe(el));
+// revealTargets.forEach(el => revealObserver.observe(el));
 
 
 // Competence Chart config
@@ -265,65 +265,13 @@ menuToggle.addEventListener("click", () => {
     }
 });
 
-// Smooth scrolls
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
+// -- Smooth scrolls disabled for 3D experience --
+// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+//     anchor.addEventListener("click", function (e) {
+//         e.preventDefault();
+//         // ... custom 3D scroll target logic could be added here
+//     });
+// });
 
-        const targetId = this.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: "smooth",
-            });
-
-            // Close mobile menu if open
-            if (!mobileMenu.classList.contains("hidden")) {
-                mobileMenu.classList.add("hidden");
-                menuToggle.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
-            }
-        }
-    });
-});
-
-// Initialize particles.js background
-particlesJS("particles-js", {
-    particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: "#00AAFF" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: false },
-        size: { value: 3, random: true },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#00AAFF",
-            opacity: 0.4,
-            width: 1,
-        },
-        move: {
-            enable: true,
-            speed: 2.2,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: true,
-        },
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: { enable: true, mode: "grab" },
-            onclick: { enable: true, mode: "push" },
-            resize: true,
-        },
-        modes: {
-            grab: { distance: 140, line_linked: { opacity: 0.95 } },
-            push: { particles_nb: 4 },
-        },
-    },
-    retina_detect: true,
-});
+// -- particles.js disabled --
+// particlesJS("particles-js", { ... });

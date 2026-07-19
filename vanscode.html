@@ -103,7 +103,16 @@
 
 </head>
 
-<body class="bg-slate-900 text-white overflow-x-hidden">
+<body class="bg-slate-900 text-white overflow-hidden">
+    <!-- Conteneurs 3D -->
+    <div id="webgl-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
+    <div id="css3d-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+
+    <!-- Bouton Retour 3D -->
+    <button id="btn-back" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-[60] bg-slate-800/90 text-white px-6 py-3 rounded-full border border-primary hover:bg-primary transition-all shadow-lg shadow-primary/20 opacity-0 pointer-events-none flex items-center gap-2 backdrop-blur-md">
+        <i class="ri-arrow-left-line"></i> Vue globale
+    </button>
+
     <div class="custom-cursor"></div>
 
     <!-- Header -->
@@ -128,6 +137,7 @@
         <!-- Mobile Menu -->
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-6 py-4 space-y-4 bg-slate-800 border-t border-slate-700">
+                <a href="index.html" class="block text-white hover:text-secondary transition-colors">Intro</a>
                 <a href="#hero" class="block text-white hover:text-secondary transition-colors">Accueil</a>
                 <a href="#competences" class="block text-white hover:text-secondary transition-colors">Compétences</a>
                 <a href="#projets" class="block text-white hover:text-secondary transition-colors">Projets</a>
@@ -138,7 +148,6 @@
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 overflow-hidden">
-        <div id="particles-js" class="absolute inset-0"></div>
         <div class="container mx-auto px-6 py-20 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                 <div class="md:w-1/2">
@@ -201,257 +210,171 @@
 
     
     <!-- Projets Section -->
-    <section id="projets" class="py-20 bg-slate-900 relative">
-        <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-slate-800 to-transparent"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mes Projets</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    Voici quelques projets qui illustrent mon apprentissage et mes compétences techniques.
-                </p>
+    <section id="projets" class="w-full h-full bg-slate-900 flex flex-col items-center justify-start py-6 px-8 relative overflow-hidden rounded-[32px] border border-slate-700 shadow-2xl">
+        <!-- Effets de lumière en arrière-plan -->
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-secondary/20 rounded-full blur-[100px]"></div>
+        
+        <div class="text-center mb-5 relative z-10 w-full">
+            <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-2">🚀 Mes Projets</h2>
+            <p class="text-slate-400 text-sm max-w-sm mx-auto">Découvrez mes récentes réalisations techniques.</p>
+        </div>
+
+        <div class="w-full flex flex-col gap-3 relative z-10 flex-1">
+            
+            <!-- Projet 1 -->
+            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
+                <div class="absolute left-0 top-0 w-1 h-full bg-green-500 opacity-50"></div>
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20">
+                            <i class="ri-whatsapp-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-wide">Assistante WhatsApp IA</h3>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Node.js</span>
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">OpenAI</span>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Bot WhatsApp intelligent basé sur l'IA, capable de répondre automatiquement selon des rôles définis avec Baileys.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <div class="project-card bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Assistante WhatsApp IA</h3>
-                        <p class="text-slate-300 text-sm mb-4">
-                            Un bot WhatsApp intelligent basé sur l'IA, développé avec Node.js et Baileys, capable de répondre automatiquement selon des rôles définis.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">Node.js</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">Baileys</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">OpenAI API</span>
+            <!-- Projet 2 -->
+            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
+                <div class="absolute left-0 top-0 w-1 h-full bg-blue-500 opacity-50"></div>
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                            <i class="ri-window-fill text-white text-xl"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white tracking-wide">Interface Graphique Python</h3>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Python</span>
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Tkinter</span>
                     </div>
                 </div>
-
-                <div class="project-card bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Interface Graphique en Python</h3>
-                        <p class="text-slate-300 text-sm mb-4">
-                            Une interface graphique simple et efficace réalisée avec Tkinter pour illustrer des concepts d’interaction utilisateur.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">Python</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">Tkinter</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Téléchargeur YouTube</h3>
-                        <p class="text-slate-300 text-sm mb-4">
-                            Application de téléchargement de vidéos YouTube en utilisant la bibliothèque yt_dlp avec une interface en ligne de commande.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">Python</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">yt_dlp</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Portfolio Pro</h3>
-                        <p class="text-slate-300 text-sm mb-4">
-                            Un site portfolio moderne et responsive pour mettre en valeur mon parcours, mes projets et mes compétences.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">HTML</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">TailwindCSS</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Calculateur d’IMC</h3>
-                        <p class="text-slate-300 text-sm mb-4">
-                            Un outil permettant de calculer l’indice de masse corporelle (IMC) à partir du poids et de la taille de l’utilisateur.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">JavaScript</span>
-                            <span class="bg-slate-700 px-2 py-1 text-xs rounded-full">HTML/CSS</span>
-                        </div>
-                    </div>
-                </div>
-
+                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Interface utilisateur simple et efficace réalisée avec Tkinter pour illustrer des concepts modernes d'interaction.</p>
             </div>
+
+            <!-- Projet 3 -->
+            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
+                <div class="absolute left-0 top-0 w-1 h-full bg-red-500 opacity-50"></div>
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/20">
+                            <i class="ri-youtube-fill text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-wide">Téléchargeur YouTube</h3>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Python</span>
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">yt_dlp</span>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Application robuste de téléchargement de vidéos YouTube avec une interface en ligne de commande ultra performante.</p>
+            </div>
+
+            <!-- Projet 4 -->
+            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
+                <div class="absolute left-0 top-0 w-1 h-full bg-purple-500 opacity-50"></div>
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
+                            <i class="ri-layout-masonry-fill text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-wide">Portfolio Pro</h3>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">TailwindCSS</span>
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">JS 3D</span>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Site portfolio moderne, interactif et responsive pour mettre en valeur mon parcours et mes compétences en 3D.</p>
+            </div>
+
+            <!-- Projet 5 -->
+            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
+                <div class="absolute left-0 top-0 w-1 h-full bg-orange-500 opacity-50"></div>
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20">
+                            <i class="ri-calculator-fill text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white tracking-wide">Calculateur d'IMC</h3>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">JavaScript</span>
+                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">HTML/CSS</span>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Outil interactif permettant de calculer facilement l'indice de masse corporelle (IMC) de manière réactive.</p>
+            </div>
+
         </div>
     </section>
 
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-slate-800 relative">
-        <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-slate-900 to-transparent"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Me Contacter</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    Vous avez un projet en tête ? N'hésitez pas à me contacter pour
-                    discuter de votre idée et voir comment je peux vous aider.
-                </p>
+    <section id="contact" class="w-full h-full bg-slate-900 flex flex-col relative overflow-y-auto rounded-[35px] border-[10px] border-black shadow-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <!-- Top App Bar / Dynamic Island simulation -->
+        <div class="w-full bg-slate-900/90 backdrop-blur-xl pt-6 pb-4 sticky top-0 z-20 border-b border-slate-800 flex flex-col items-center justify-center">
+            <div class="w-32 h-6 bg-black rounded-full absolute top-1"></div> <!-- Faux notch -->
+            <h2 class="text-xl font-bold text-white tracking-wide mt-4">Contact</h2>
+        </div>
+
+        <div class="flex flex-col gap-6 p-5 pb-10">
+            
+            <!-- Quick Contacts -->
+            <div class="flex flex-col gap-3">
+                <a href="mailto:guyyvan42@gmail.com" class="flex items-center gap-4 bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 hover:border-primary transition">
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                        <i class="ri-mail-line text-primary text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Email direct</p>
+                        <p class="text-sm text-white font-medium">guyyvan42@gmail.com</p>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/237652033289" target="_blank" class="flex items-center gap-4 bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 hover:border-green-500 transition">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                        <i class="ri-whatsapp-line text-green-500 text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">WhatsApp</p>
+                        <p class="text-sm text-white font-medium">+237 652 033 289</p>
+                    </div>
+                </a>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-slate-900 p-8 !rounded-lg border border-slate-700">
-                    <h3 class="text-2xl font-bold mb-6">Envoyez-moi un message</h3>
-
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Nom</label>
-                                <input type="text" id="name"
-                                    class="w-full px-4 py-3 !rounded-lg bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-white"
-                                    placeholder="Votre nom" />
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                                <input type="email" id="email"
-                                    class="w-full px-4 py-3 !rounded-lg bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-white"
-                                    placeholder="votre@email.com" />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Sujet</label>
-                            <input type="text" id="subject"
-                                class="w-full px-4 py-3 !rounded-lg bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-white"
-                                placeholder="Sujet de votre message" />
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                            <textarea id="message" rows="5"
-                                class="w-full px-4 py-3 !rounded-lg bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-white resize-none"
-                                placeholder="Votre message..."></textarea>
-                        </div>
-
-                        <button type="submit"
-                            class="w-full px-6 py-3 bg-primary hover:bg-blue-700 text-white font-medium !rounded-button transition-colors flex items-center justify-center whitespace-nowrap">
-                            <i class="ri-send-plane-line mr-2"></i> Envoyer le message
-                        </button>
-                    </form>
-                </div>
-
-                <div>
-                    <div class="bg-slate-900 p-8 !rounded-lg border border-slate-700 mb-8">
-                        <h3 class="text-2xl font-bold mb-6">Informations de contact</h3>
-
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 flex items-center justify-center bg-primary/10 !rounded-full mr-4 mt-1">
-                                    <i class="ri-mail-line text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium">Email</h4>
-                                    <p class="text-slate-300">guyyvan42@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 flex items-center justify-center bg-primary/10 !rounded-full mr-4 mt-1">
-                                    <i class="ri-map-pin-line text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium">Localisation</h4>
-                                    <p class="text-slate-300">DOUALA, CAMEROUN </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 flex items-center justify-center bg-primary/10 !rounded-full mr-4 mt-1">
-                                    <i class="ri-time-line text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium">Disponibilité</h4>
-                                    <p class="text-slate-300">vendredi - dimanche, 9h - 18h</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-8">
-                            <h4 class="text-lg font-medium mb-4">Suivez-moi</h4>
-                            <div class="flex space-x-4">
-                               <a href="https://github.com/vanscode-CM" target="_blank" rel="noopener noreferrer"
-                                    class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                                    <i class="ri-github-fill text-white"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/yvan-guy-9a68ab346" target="_blank" rel="noopener noreferrer"
-                                    class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                                    <i class="ri-linkedin-fill text-white"></i>
-                                </a>
-                                <a href="https://twitter.com/@yvan_guy75549" target="_blank" rel="noopener noreferrer"
-                                    class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                                    <i class="ri-twitter-x-fill text-white"></i>
-                                </a>
-                                <a href="https://t.me/@Vanscode" target="_blank" rel="noopener noreferrer"
-                                class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                                <i class="ri-telegram-line text-white"></i> 
-                            </a>
-                            
-                            <a href="https://wa.me/237652033289" target="_blank" rel="noopener noreferrer"
-                            class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                            <i class="ri-whatsapp-line text-white"></i>
-                        </a>
-                        
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900 p-8 !rounded-lg border border-slate-700">
-                        <h3 class="text-2xl font-bold mb-6">Disponible pour</h3>
-
-                        <div class="space-y-4">
-                            <div class="flex items-center p-4 bg-slate-800 !rounded-lg">
-                                <div
-                                    class="w-10 h-10 flex items-center justify-center bg-green-500/10 !rounded-full mr-4">
-                                    <i class="ri-code-s-slash-line text-green-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">Développement Web</h4>
-                                    <p class="text-sm text-slate-300">
-                                        Sites et applications web
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 !rounded-lg">
-                                <div
-                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/10 !rounded-full mr-4">
-                                    <i class="ri-layout-line text-blue-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">UI/UX Design</h4>
-                                    <p class="text-sm text-slate-300">
-                                        Interfaces utilisateur modernes
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 !rounded-lg">
-                                <div
-                                    class="w-10 h-10 flex items-center justify-center bg-purple-500/10 !rounded-full mr-4">
-                                    <i class="ri-server-line text-purple-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">Backend Development</h4>
-                                    <p class="text-sm text-slate-300">
-                                        APIs et bases de données
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Social Media -->
+            <div class="flex justify-between items-center bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                <a href="https://github.com/vanscode-CM" target="_blank" class="w-11 h-11 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition shadow-lg"><i class="ri-github-fill text-white text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yvan-guy-9a68ab346" target="_blank" class="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i class="ri-linkedin-fill text-white text-xl"></i></a>
+                <a href="https://twitter.com/@yvan_guy75549" target="_blank" class="w-11 h-11 bg-black border border-slate-600 rounded-full flex items-center justify-center hover:bg-slate-800 transition shadow-lg"><i class="ri-twitter-x-fill text-white text-xl"></i></a>
+                <a href="https://t.me/@Vanscode" target="_blank" class="w-11 h-11 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-400 transition shadow-lg"><i class="ri-telegram-fill text-white text-xl"></i></a>
             </div>
+
+            <!-- Message Form -->
+            <div class="flex flex-col gap-4 mt-2">
+                <div class="flex items-center gap-2 pl-1">
+                    <i class="ri-chat-3-fill text-secondary"></i>
+                    <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Laisser un message</h3>
+                </div>
+                
+                <form class="flex flex-col gap-3">
+                    <input type="text" placeholder="Votre nom" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
+                    <input type="email" placeholder="Votre email" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
+                    <textarea rows="3" placeholder="Votre message..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none resize-none transition"></textarea>
+                    
+                    <button type="button" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl py-4 mt-1 shadow-lg shadow-primary/30 flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition">
+                        <i class="ri-send-plane-fill text-lg"></i> Envoyer
+                    </button>
+                </form>
+            </div>
+            
         </div>
     </section>
 
@@ -559,10 +482,17 @@
         </div>
     </footer>
 
-    <script src="particles.min.js"></script>
+    <!-- Librairies 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
     <script src="gsap.min.js"></script>
     <script src="chart.js"></script>
     <script src="script.js"></script>
+    <!-- Script d'expérience 3D -->
+    <script src="vanscode3d.js"></script>
 </body>
 
 </html>
