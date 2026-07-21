@@ -160,7 +160,7 @@
 
 
                     <p> Salut moi c'est <strong> VANSCODE </strong> et je suis un <em>développeur web
-                        fullstack </em> avec 2 ans d'expérience dans la création de sites web et d'applications web. Je suis
+                        fullstack </em> avec 5 ans d'expérience dans la création de sites web et d'applications web. Je suis
                         passionné par la
                         création d'expériences utilisateur exceptionnelles et de solutions innovantes et j'ai une forte
                         volonté d'apprendre et d'évoluer dans le
@@ -168,12 +168,12 @@
                         développement web.</p>
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#contact" class="contact px-6 py-3 ">
+                        <a href="#contact" onclick="event.preventDefault(); event.stopPropagation(); goToView('phone')" class="contact px-6 py-3 ">
 
                             ME CONACTER
 
                         </a>
-                        <a href="#projets"
+                        <a href="#projets" onclick="event.preventDefault(); event.stopPropagation(); goToView('tablet')"
                             class=" projet px-6 py-3 bg-transparent border border-secondary text-secondary hover:bg-secondary/10 font-medium !rounded-button transition-colors flex items-center whitespace-nowrap">
                             <i class="ri-eye-line mr-2"></i> Voir mes projets
                         </a>
@@ -364,14 +364,16 @@
                     <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Laisser un message</h3>
                 </div>
                 
-                <form class="flex flex-col gap-3">
-                    <input type="text" placeholder="Votre nom" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
-                    <input type="email" placeholder="Votre email" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
-                    <textarea rows="3" placeholder="Votre message..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none resize-none transition"></textarea>
+                <form id="contact-form" class="flex flex-col gap-3">
+                    <input type="hidden" name="access_key" value="601b488d-521c-489b-b1ed-5b9d3cdb2a8b">
+                    <input type="text" name="name" required placeholder="Votre nom" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
+                    <input type="email" name="email" required placeholder="Votre email" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
+                    <textarea name="message" required rows="3" placeholder="Votre message..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none resize-none transition"></textarea>
                     
-                    <button type="button" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl py-4 mt-1 shadow-lg shadow-primary/30 flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition">
+                    <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl py-4 mt-1 shadow-lg shadow-primary/30 flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition">
                         <i class="ri-send-plane-fill text-lg"></i> Envoyer
                     </button>
+                    <p id="form-status" class="text-sm text-center hidden mt-2"></p>
                 </form>
             </div>
             

@@ -310,7 +310,45 @@ function onMouseMove(event) {
 }
 
 function onClick(event) {
-    if(currentTarget !== 'global') return; 
+    if (!event.isTrusted) return; // Prevent programmatic clicks from triggering raycaster loops
+
+    if(currentTarget !== 'global') {
+        // Fallback for CSS3D hit-testing bugs when zoomed in:
+        // Manually check if the click falls within the bounding box of ANY interactive element
+        const interactables = Array.from(document.querySelectorAll('a, button, input, textarea')).reverse();
+        const idToView = { 'hero': 'pc', 'competences': 'wall', 'projets': 'tablet', 'contact': 'phone' };
+        
+        let handled = false;
+        interactables.forEach(el => {
+            if (handled) return;
+            const rect = el.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0) {
+                if (event.clientX >= rect.left && event.clientX <= rect.right && 
+                    event.clientY >= rect.top && event.clientY <= rect.bottom) {
+                    
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.focus();
+                        handled = true;
+                    } else if (el.tagName === 'A') {
+                        const href = el.getAttribute('href');
+                        if (href && href.startsWith('#')) {
+                            const viewId = idToView[href.substring(1)];
+                            if (viewId) goToView(viewId);
+                        } else if (href) {
+                            window.open(href, el.getAttribute('target') || '_self');
+                        }
+                        handled = true;
+                    } else if (el.tagName === 'BUTTON') {
+                        el.click();
+                        handled = true;
+                    }
+                }
+            }
+        });
+        
+        if (handled) return; // Stop here ONLY if we successfully clicked an HTML element
+        // If no HTML element was clicked, we let the raycaster below check for 3D objects!
+    }
 
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(clickableObjects);
@@ -404,7 +442,7 @@ function goToView(viewId) {
 }
 
 function setupNavigation() {
-    const navLinks = document.querySelectorAll('header a[href^="#"]');
+    const navLinks = document.querySelectorAll('a[href^="#"]');
     const idToView = {
         'hero': 'pc',
         'competences': 'wall',

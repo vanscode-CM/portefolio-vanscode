@@ -275,3 +275,52 @@ menuToggle.addEventListener("click", () => {
 
 // -- particles.js disabled --
 // particlesJS("particles-js", { ... });
+
+// Web3Forms Contact Form Logic
+const form = document.getElementById('contact-form');
+const result = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const originalBtnHTML = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin text-lg"></i> Envoi...';
+        submitBtn.disabled = true;
+        result.classList.remove('hidden', 'text-red-500', 'text-green-500');
+        result.classList.add('text-slate-400');
+        result.innerHTML = "Traitement en cours...";
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.classList.replace('text-slate-400', 'text-green-500');
+                result.innerHTML = "✅ " + json.message;
+                form.reset();
+            } else {
+                console.log(response);
+                result.classList.replace('text-slate-400', 'text-red-500');
+                result.innerHTML = "❌ " + json.message;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.classList.replace('text-slate-400', 'text-red-500');
+            result.innerHTML = "❌ Une erreur est survenue !";
+        })
+        .then(function() {
+            submitBtn.innerHTML = originalBtnHTML;
+            submitBtn.disabled = false;
+            setTimeout(() => {
+                result.classList.add('hidden');
+            }, 5000);
+        });
+    });
+}
