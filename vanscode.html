@@ -2,22 +2,21 @@
 <html lang="fr">
 
 <head>
-    <meta name="google-site-verification" content="Mi19NCbksNwmq0c7m7HYi5oNu6pi1f8AjrqrcI5qZvI" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="Mi19NCbksNwmq0c7m7HYi5oNu6pi1f8AjrqrcI5qZvI" />
     <title>VansCode | Développeur Web Full Stack | Douala, Cameroun</title>
-    
-    <!-- Meta SEO de base -->
+
+    <!-- SEO -->
     <meta name="description" content="Portfolio de VansCode (Simo Guy Yvan), Développeur Web Full Stack basé à Douala, Cameroun. Spécialisé en React, TypeScript, Node.js, NestJS, PostgreSQL et MongoDB." />
     <meta name="keywords" content="VansCode, Simo Guy Yvan, Développeur Web, Full Stack, Douala, Cameroun, React, TypeScript, Node.js, NestJS, PostgreSQL, MongoDB, création site web, portfolio" />
     <meta name="author" content="VansCode (Simo Guy Yvan)" />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0d14" />
     <link rel="canonical" href="https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html" />
-    
-    <!-- Favicon moderne (Emoji SVG) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230a0d14%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 font-family=%22monospace%22 font-weight=%22700%22 fill=%22%232bb3ff%22 text-anchor=%22middle%22>&lt;/&gt;</text></svg>">
 
-    <!-- Open Graph / Facebook / LinkedIn -->
+    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html" />
     <meta property="og:title" content="VansCode | Développeur Web Full Stack | Douala, Cameroun" />
@@ -26,16 +25,12 @@
     <meta property="og:image:alt" content="Simo Guy Yvan - VansCode" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="VansCode Portfolio" />
-
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://vanscode-cm.github.io/portefolio-vanscode/vanscode.html" />
     <meta name="twitter:title" content="VansCode | Développeur Web Full Stack | Douala, Cameroun" />
     <meta name="twitter:description" content="Découvrez le portfolio de VansCode, développeur web Full Stack spécialisé dans les technologies modernes : React, Node.js, NestJS, PostgreSQL, MongoDB." />
     <meta name="twitter:image" content="https://vanscode-cm.github.io/portefolio-vanscode/simo_guy_yvan_profil.png" />
     <meta name="twitter:creator" content="@yvan_guy75549" />
 
-    <!-- Données structurées JSON-LD (Schema Person & WebSite) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -48,453 +43,375 @@
       "sameAs": [
         "https://github.com/vanscode-CM",
         "https://www.linkedin.com/in/yvan-guy-9a68ab346",
-        "https://twitter.com/@yvan_guy75549"
+        "https://twitter.com/yvan_guy75549"
       ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Douala",
-        "addressCountry": "CM"
-      },
-      "knowsAbout": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Node.js",
-        "NestJS",
-        "PostgreSQL",
-        "MongoDB",
-        "Développement Web",
-        "UI/UX Design",
-        "API Development"
-      ]
+      "address": { "@type": "PostalAddress", "addressLocality": "Douala", "addressCountry": "CM" },
+      "knowsAbout": ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Python", "Développement Web", "API Development"]
     }
     </script>
+
+    <!-- Thème (avant le rendu pour éviter le flash) + activation des animations -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('vc-theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('anim');
+            }
+        })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { primary: "#0066CC", secondary: "#00AAFF" },
-                    borderRadius: {
-                        none: "0px",
-                        sm: "4px",
-                        DEFAULT: "8px",
-                        md: "12px",
-                        lg: "16px",
-                        xl: "20px",
-                        "2xl": "24px",
-                        "3xl": "32px",
-                        full: "9999px",
-                        button: "8px",
-                    },
-                },
-            },
-        };
-    </script>
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="preload" as="image" href="simo_guy_yvan_profil.png" />
+    <link rel="stylesheet" href="main.css" />
 </head>
 
-<body class="bg-slate-900 text-white overflow-hidden">
-    <!-- Conteneurs 3D -->
-    <div id="webgl-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
-    <div id="css3d-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <div class="progress" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
 
-    <!-- Bouton Retour 3D -->
-    <button id="btn-back" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-[60] bg-slate-800/90 text-white px-6 py-3 rounded-full border border-primary hover:bg-primary transition-all shadow-lg shadow-primary/20 opacity-0 pointer-events-none flex items-center gap-2 backdrop-blur-md">
-        <i class="ri-arrow-left-line"></i> Vue globale
-    </button>
+    <!-- Navigation -->
+    <header class="nav" id="nav">
+        <div class="nav__inner wrap">
+            <a href="#top" class="logo" aria-label="VansCode, retour en haut">
+                <span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>VansCode
+            </a>
 
-    <div class="custom-cursor"></div>
-
-    <!-- Header -->
-    <header class="fixed w-full z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-['Pacifico'] text-2xl text-white glow">VansCode</a>
-
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-white hover:text-secondary transition-colors">Intro</a>
-                <a href="#hero" class="nav-link text-white hover:text-secondary transition-colors">Accueil</a>
-                <a href="#competences"
-                    class="nav-link text-white hover:text-secondary transition-colors">Compétences</a>
-                <a href="#projets" class="nav-link text-white hover:text-secondary transition-colors">Projets</a>
-                <a href="#contact" class="nav-link text-white hover:text-secondary transition-colors">Contact</a>
+            <nav class="nav__links" aria-label="Navigation principale">
+                <a href="#about">À propos</a>
+                <a href="#stack">Stack</a>
+                <a href="#projets">Projets</a>
+                <a href="#methode">Méthode</a>
             </nav>
 
-            <button class="md:hidden w-10 h-10 flex items-center justify-center text-white" id="menu-toggle">
-                <i class="ri-menu-line ri-lg"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-6 py-4 space-y-4 bg-slate-800 border-t border-slate-700">
-                <a href="index.html" class="block text-white hover:text-secondary transition-colors">Intro</a>
-                <a href="#hero" class="block text-white hover:text-secondary transition-colors">Accueil</a>
-                <a href="#competences" class="block text-white hover:text-secondary transition-colors">Compétences</a>
-                <a href="#projets" class="block text-white hover:text-secondary transition-colors">Projets</a>
-                <a href="#contact" class="block text-white hover:text-secondary transition-colors">Contact</a>
+            <div class="nav__actions">
+                <a href="room.html" class="icon-btn" title="Explorer le portfolio en 3D" aria-label="Mode 3D">
+                    <i class="ri-box-3-line" aria-hidden="true"></i>
+                </a>
+                <button class="icon-btn" id="theme-toggle" type="button" aria-label="Changer de thème">
+                    <i class="ri-sun-line theme-icon--light" aria-hidden="true"></i>
+                    <i class="ri-moon-line theme-icon--dark" aria-hidden="true"></i>
+                </button>
+                <a href="#contact" class="btn btn--primary btn--sm nav__cta magnetic">Me contacter</a>
+                <button class="icon-btn nav__burger" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+                    <i class="ri-menu-line" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile" hidden>
+            <a href="#about">À propos</a>
+            <a href="#stack">Stack</a>
+            <a href="#projets">Projets</a>
+            <a href="#methode">Méthode</a>
+            <a href="#contact">Me contacter</a>
+            <a href="room.html">Mode 3D</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 overflow-hidden">
-        <div class="container mx-auto px-6 py-20 relative z-10">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                <div class="md:w-1/2">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                        <span class="block">VansCode</span>
-                        <span class="block text-secondary mt-2">Développeur Web Full Stack</span>
-                    </h1>
-                    <p class="text-slate-300 text-lg mb-8">
-
-
-
-                    <p> Salut moi c'est <strong> VANSCODE </strong> et je suis un <em>développeur web
-                        fullstack </em> avec 5 ans d'expérience dans la création de sites web et d'applications web. Je suis
-                        passionné par la
-                        création d'expériences utilisateur exceptionnelles et de solutions innovantes et j'ai une forte
-                        volonté d'apprendre et d'évoluer dans le
-                        domaine du
-                        développement web.</p>
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" onclick="event.preventDefault(); event.stopPropagation(); goToView('phone')" class="contact px-6 py-3 ">
-
-                            ME CONACTER
-
-                        </a>
-                        <a href="#projets" onclick="event.preventDefault(); event.stopPropagation(); goToView('tablet')"
-                            class=" projet px-6 py-3 bg-transparent border border-secondary text-secondary hover:bg-secondary/10 font-medium !rounded-button transition-colors flex items-center whitespace-nowrap">
-                            <i class="ri-eye-line mr-2"></i> Voir mes projets
-                        </a>
-                    </div>
-                </div>
-
-                <div class="test md:w-1/2 flex justify-center">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 ">
-                        <div class="absolute   bg-gradient-to-br from-primary to-secondary opacity-20 animate-pulse">
-                        </div>
-                        <div
-                            class="card absolute inset-2  bg-slate-800 flex items-center justify-center overflow-hidden">
-                            <img src="simo_guy_yvan_profil.png" alt="Simo Guy Yvan (VansCode) - Développeur Web Full Stack à Douala, Cameroun" class="w-full h-full object-cover"
-                                style="z-index: 10;" />
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 w-24 h-24 hexagon bg-secondary/20 backdrop-blur-sm">
-                        </div>
-                        <div class="absolute -top-6 -left-6 w-16 h-16 hexagon bg-primary/20 backdrop-blur-sm"></div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-    <!-- Compétences Section -->
-    <section id="competences" class="py-20 bg-slate-800">
-        <div class="chart-container w-full h-96 ">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Mes Compétences en Développement</h2>
-            <canvas id="competencesChart"></canvas>
-        </div>
-    </section>
-
-    
-    <!-- Projets Section -->
-    <section id="projets" class="w-full h-full bg-slate-900 flex flex-col items-center justify-start py-6 px-8 relative overflow-hidden rounded-[32px] border border-slate-700 shadow-2xl">
-        <!-- Effets de lumière en arrière-plan -->
-        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-[100px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-secondary/20 rounded-full blur-[100px]"></div>
-        
-        <div class="text-center mb-5 relative z-10 w-full">
-            <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-2">🚀 Mes Projets</h2>
-            <p class="text-slate-400 text-sm max-w-sm mx-auto">Découvrez mes récentes réalisations techniques.</p>
-        </div>
-
-        <div class="w-full flex flex-col gap-3 relative z-10 flex-1">
-            
-            <!-- Projet 1 -->
-            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
-                <div class="absolute left-0 top-0 w-1 h-full bg-green-500 opacity-50"></div>
-                <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20">
-                            <i class="ri-whatsapp-line text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white tracking-wide">Assistante WhatsApp IA</h3>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Node.js</span>
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">OpenAI</span>
-                    </div>
-                </div>
-                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Bot WhatsApp intelligent basé sur l'IA, capable de répondre automatiquement selon des rôles définis avec Baileys.</p>
-            </div>
-
-            <!-- Projet 2 -->
-            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
-                <div class="absolute left-0 top-0 w-1 h-full bg-blue-500 opacity-50"></div>
-                <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                            <i class="ri-window-fill text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white tracking-wide">Interface Graphique Python</h3>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Python</span>
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Tkinter</span>
-                    </div>
-                </div>
-                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Interface utilisateur simple et efficace réalisée avec Tkinter pour illustrer des concepts modernes d'interaction.</p>
-            </div>
-
-            <!-- Projet 3 -->
-            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
-                <div class="absolute left-0 top-0 w-1 h-full bg-red-500 opacity-50"></div>
-                <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/20">
-                            <i class="ri-youtube-fill text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white tracking-wide">Téléchargeur YouTube</h3>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">Python</span>
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">yt_dlp</span>
-                    </div>
-                </div>
-                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Application robuste de téléchargement de vidéos YouTube avec une interface en ligne de commande ultra performante.</p>
-            </div>
-
-            <!-- Projet 4 -->
-            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
-                <div class="absolute left-0 top-0 w-1 h-full bg-purple-500 opacity-50"></div>
-                <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
-                            <i class="ri-layout-masonry-fill text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white tracking-wide">Portfolio Pro</h3>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">TailwindCSS</span>
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">JS 3D</span>
-                    </div>
-                </div>
-                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Site portfolio moderne, interactif et responsive pour mettre en valeur mon parcours et mes compétences en 3D.</p>
-            </div>
-
-            <!-- Projet 5 -->
-            <div class="flex flex-col p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl shadow-lg backdrop-blur-md relative overflow-hidden group">
-                <div class="absolute left-0 top-0 w-1 h-full bg-orange-500 opacity-50"></div>
-                <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20">
-                            <i class="ri-calculator-fill text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white tracking-wide">Calculateur d'IMC</h3>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">JavaScript</span>
-                        <span class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] px-2 py-0.5 rounded-md font-medium">HTML/CSS</span>
-                    </div>
-                </div>
-                <p class="text-slate-400 text-[13px] leading-relaxed pl-14">Outil interactif permettant de calculer facilement l'indice de masse corporelle (IMC) de manière réactive.</p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="w-full h-full bg-slate-900 flex flex-col relative overflow-y-auto rounded-[35px] border-[10px] border-black shadow-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <!-- Top App Bar / Dynamic Island simulation -->
-        <div class="w-full bg-slate-900/90 backdrop-blur-xl pt-6 pb-4 sticky top-0 z-20 border-b border-slate-800 flex flex-col items-center justify-center">
-            <div class="w-32 h-6 bg-black rounded-full absolute top-1"></div> <!-- Faux notch -->
-            <h2 class="text-xl font-bold text-white tracking-wide mt-4">Contact</h2>
-        </div>
-
-        <div class="flex flex-col gap-6 p-5 pb-10">
-            
-            <!-- Quick Contacts -->
-            <div class="flex flex-col gap-3">
-                <a href="mailto:guyyvan42@gmail.com" class="flex items-center gap-4 bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 hover:border-primary transition">
-                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                        <i class="ri-mail-line text-primary text-2xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Email direct</p>
-                        <p class="text-sm text-white font-medium">guyyvan42@gmail.com</p>
-                    </div>
-                </a>
-
-                <a href="https://wa.me/237652033289" target="_blank" class="flex items-center gap-4 bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 hover:border-green-500 transition">
-                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
-                        <i class="ri-whatsapp-line text-green-500 text-2xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">WhatsApp</p>
-                        <p class="text-sm text-white font-medium">+237 652 033 289</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Social Media -->
-            <div class="flex justify-between items-center bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
-                <a href="https://github.com/vanscode-CM" target="_blank" class="w-11 h-11 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition shadow-lg"><i class="ri-github-fill text-white text-xl"></i></a>
-                <a href="https://www.linkedin.com/in/yvan-guy-9a68ab346" target="_blank" class="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i class="ri-linkedin-fill text-white text-xl"></i></a>
-                <a href="https://twitter.com/@yvan_guy75549" target="_blank" class="w-11 h-11 bg-black border border-slate-600 rounded-full flex items-center justify-center hover:bg-slate-800 transition shadow-lg"><i class="ri-twitter-x-fill text-white text-xl"></i></a>
-                <a href="https://t.me/@Vanscode" target="_blank" class="w-11 h-11 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-400 transition shadow-lg"><i class="ri-telegram-fill text-white text-xl"></i></a>
-            </div>
-
-            <!-- Message Form -->
-            <div class="flex flex-col gap-4 mt-2">
-                <div class="flex items-center gap-2 pl-1">
-                    <i class="ri-chat-3-fill text-secondary"></i>
-                    <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Laisser un message</h3>
-                </div>
-                
-                <form id="contact-form" class="flex flex-col gap-3">
-                    <input type="hidden" name="access_key" value="601b488d-521c-489b-b1ed-5b9d3cdb2a8b">
-                    <input type="text" name="name" required placeholder="Votre nom" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
-                    <input type="email" name="email" required placeholder="Votre email" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none transition">
-                    <textarea name="message" required rows="3" placeholder="Votre message..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3.5 text-sm text-white focus:border-primary focus:outline-none resize-none transition"></textarea>
-                    
-                    <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl py-4 mt-1 shadow-lg shadow-primary/30 flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition">
-                        <i class="ri-send-plane-fill text-lg"></i> Envoyer
-                    </button>
-                    <p id="form-status" class="text-sm text-center hidden mt-2"></p>
-                </form>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 bg-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <a href="#" class="font-['Pacifico'] text-2xl text-white mb-4 inline-block">VansCode</a>
-                    <p class="text-slate-400 mb-6">
-                        Développeur Web Full Stack passionné par la création d'expériences
-                        numériques exceptionnelles.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/vanscode-CM" target="_blank" rel="noopener noreferrer"
-                        class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                        <i class="ri-github-fill text-white"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/yvan-guy-9a68ab346" target="_blank" rel="noopener noreferrer"
-                        class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                        <i class="ri-linkedin-fill text-white"></i>
-                    </a>
-                    <a href="https://twitter.com/@yvan_guy75549" target="_blank" rel="noopener noreferrer"
-                        class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                        <i class="ri-twitter-x-fill text-white"></i>
-                    </a>
-                    <a href="https://t.me/@Vanscode" target="_blank" rel="noopener noreferrer"
-                    class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                    <i class="ri-telegram-line text-white"></i> 
-                </a>
-                
-                <a href="https://wa.me/237652033289" target="_blank" rel="noopener noreferrer"
-                class="social-btn w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-slate-700 !rounded-full">
-                <i class="ri-whatsapp-line text-white"></i>
-            </a>
-            
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Navigation</h4>
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="#hero" class="text-slate-400 hover:text-white transition-colors">Accueil</a>
-                        </li>
-                        <li>
-                            <a href="#competences"
-                                class="text-slate-400 hover:text-white transition-colors">Compétences</a>
-                        </li>
-                        <li>
-                            <a href="#projets" class="text-slate-400 hover:text-white transition-colors">Projets</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="text-slate-400 hover:text-white transition-colors">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Services</h4>
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="#" class="text-slate-400 hover:text-white transition-colors">Développement Web</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-slate-400 hover:text-white transition-colors">UI/UX Design</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-slate-400 hover:text-white transition-colors">Backend
-                                Development</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-slate-400 hover:text-white transition-colors">Consulting</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
-                    <p class="text-slate-400 mb-4">
-                        Abonnez-vous pour recevoir mes dernières actualités et conseils.
-                    </p>
-                    <form class="flex">
-                        <input type="email" placeholder="Votre email"
-                            class="px-4 py-2 !rounded-l-button bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-white w-full" />
-                        <button type="submit"
-                            class="px-4 py-2 bg-primary hover:bg-blue-700 text-white !rounded-r-button !rounded-l-none transition-colors whitespace-nowrap">
-                            S'abonner
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-slate-400 text-sm">
-                    &copy; VANSCODE. Tous droits réservés.
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero wrap" id="top">
+            <div class="hero__text">
+                <p class="badge hero-in">
+                    <span class="badge__dot" aria-hidden="true"></span>
+                    Disponible pour de nouveaux projets
                 </p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Politique de
-                        confidentialité</a>
-                    <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Conditions
-                        d'utilisation</a>
+                <h1 class="hero__title">
+                    <span class="line"><span class="hero-word">Je</span> <span class="hero-word">construis</span> <span class="hero-word">des</span></span>
+                    <span class="line rotator" aria-live="polite">
+                        <span class="rotator__word">applications web</span>
+                    </span>
+                    <span class="line"><span class="hero-word">de</span> <span class="hero-word">bout</span> <span class="hero-word">en</span> <span class="hero-word">bout.</span></span>
+                </h1>
+                <p class="hero__sub hero-in">
+                    Je suis <strong>VansCode</strong> (Simo Guy Yvan), développeur full stack à Douala.
+                    React, Node.js, NestJS, PostgreSQL et MongoDB.
+                </p>
+                <div class="hero__ctas hero-in">
+                    <a href="#projets" class="btn btn--primary magnetic">
+                        Voir mes projets <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                    </a>
+                    <a href="#contact" class="btn btn--ghost magnetic">Me contacter</a>
                 </div>
             </div>
+
+            <div class="hero__visual">
+                <div class="portrait">
+                    <div class="portrait__ring" aria-hidden="true"></div>
+                    <img src="simo_guy_yvan_profil.png" alt="Portrait de Simo Guy Yvan (VansCode), développeur web full stack à Douala" width="420" height="420" class="portrait__img" />
+                    <ul class="orbit" aria-hidden="true">
+                        <li style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" width="34" height="34" /></li>
+                        <li style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="" width="34" height="34" /></li>
+                        <li style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" width="34" height="34" /></li>
+                        <li style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nestjs/nestjs-original.svg" alt="" width="34" height="34" /></li>
+                        <li style="--i:4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="34" height="34" /></li>
+                        <li style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg" alt="" width="34" height="34" /></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- À propos -->
+        <section class="about wrap section" id="about">
+            <h2 class="sr-only">À propos</h2>
+            <p class="about__statement" data-words>
+                Depuis plus de cinq ans, je transforme des idées en produits web qui tiennent la route.
+                Interfaces soignées côté client, API solides côté serveur, données bien structurées :
+                j'aime maîtriser toute la chaîne, et je continue d'apprendre chaque jour.
+            </p>
+            <dl class="stats">
+                <div class="stat" data-reveal>
+                    <dt>Années d'expérience</dt>
+                    <dd><span class="counter" data-to="5">5</span>+</dd>
+                </div>
+                <div class="stat" data-reveal>
+                    <dt>Dépôts publics sur GitHub</dt>
+                    <dd><span class="counter" id="repo-count" data-to="15">15</span></dd>
+                </div>
+                <div class="stat" data-reveal>
+                    <dt>Technologies utilisées</dt>
+                    <dd><span class="counter" id="tech-count" data-to="17">17</span></dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- Stack -->
+        <section class="stack wrap section" id="stack">
+            <h2 class="section__title" data-reveal>Ma stack technique</h2>
+            <div class="bento">
+                <article class="bento__cell bento__cell--front" data-reveal>
+                    <h3><i class="ri-layout-4-line" aria-hidden="true"></i> Frontend</h3>
+                    <p>Des interfaces rapides, accessibles et responsives.</p>
+                    <ul class="techs">
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" width="28" height="28" loading="lazy" />React</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" width="28" height="28" loading="lazy" />TypeScript</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" width="28" height="28" loading="lazy" />JavaScript</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="" width="28" height="28" loading="lazy" />HTML5</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="" width="28" height="28" loading="lazy" />CSS3</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" width="28" height="28" loading="lazy" />Tailwind CSS</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jquery/jquery-original.svg" alt="" width="28" height="28" loading="lazy" />jQuery</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/threejs/threejs-original.svg" alt="" width="28" height="28" loading="lazy" class="invert-dark" />Three.js</li>
+                    </ul>
+                </article>
+
+                <article class="bento__cell bento__cell--back" data-reveal>
+                    <h3><i class="ri-server-line" aria-hidden="true"></i> Backend</h3>
+                    <p>API REST, logique métier et automatisations.</p>
+                    <ul class="techs">
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="" width="28" height="28" loading="lazy" />Node.js</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nestjs/nestjs-original.svg" alt="" width="28" height="28" loading="lazy" />NestJS</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="" width="28" height="28" loading="lazy" />Python</li>
+                    </ul>
+                </article>
+
+                <article class="bento__cell bento__cell--data" data-reveal>
+                    <h3><i class="ri-database-2-line" aria-hidden="true"></i> Données</h3>
+                    <p>Modélisation relationnelle et documents.</p>
+                    <ul class="techs">
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="28" height="28" loading="lazy" />PostgreSQL</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg" alt="" width="28" height="28" loading="lazy" />MongoDB</li>
+                    </ul>
+                </article>
+
+                <article class="bento__cell bento__cell--tools" data-reveal>
+                    <h3><i class="ri-tools-line" aria-hidden="true"></i> Outils</h3>
+                    <p>Versionner, conteneuriser, maquetter.</p>
+                    <ul class="techs">
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" width="28" height="28" loading="lazy" />Git</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt="" width="28" height="28" loading="lazy" class="invert-dark" />GitHub</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="28" height="28" loading="lazy" />Docker</li>
+                        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="" width="28" height="28" loading="lazy" />Figma</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projets -->
+        <section class="projects wrap section" id="projets">
+            <h2 class="section__title" data-reveal>Projets sélectionnés</h2>
+
+            <div class="filters" role="group" aria-label="Filtrer les projets" data-reveal>
+                <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Tous</button>
+                <button type="button" class="chip" data-filter="web" aria-pressed="false">Web</button>
+                <button type="button" class="chip" data-filter="bot" aria-pressed="false">Bots &amp; IA</button>
+                <button type="button" class="chip" data-filter="python" aria-pressed="false">Python</button>
+            </div>
+
+            <div class="project-grid">
+                <article class="project project--featured" data-cat="bot" data-reveal>
+                    <div class="project__icon" style="--tint: #25d366"><i class="ri-whatsapp-line" aria-hidden="true"></i></div>
+                    <h3>Assistante WhatsApp IA</h3>
+                    <p>Bot WhatsApp intelligent basé sur l'IA, capable de répondre automatiquement selon des rôles définis, construit avec Baileys.</p>
+                    <ul class="tags"><li>Node.js</li><li>OpenAI</li><li>Baileys</li></ul>
+                </article>
+
+                <article class="project" data-cat="web" data-reveal>
+                    <div class="project__icon" style="--tint: #2bb3ff"><i class="ri-box-3-line" aria-hidden="true"></i></div>
+                    <h3>Portfolio 3D</h3>
+                    <p>Ce portfolio, avec une version explorable en 3D : une chambre modélisée où chaque objet ouvre une section.</p>
+                    <ul class="tags"><li>Three.js</li><li>GSAP</li><li>JavaScript</li></ul>
+                    <div class="project__links">
+                        <a href="room.html" class="link">Ouvrir la 3D <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+                        <a href="https://github.com/vanscode-CM/portefolio-vanscode" target="_blank" rel="noopener noreferrer" class="link">Code <i class="ri-github-line" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="web" data-reveal>
+                    <div class="project__icon" style="--tint: #ff9f43"><i class="ri-calculator-line" aria-hidden="true"></i></div>
+                    <h3>Calculateur d'IMC</h3>
+                    <p>Outil interactif qui calcule l'indice de masse corporelle et en déduit la corpulence en temps réel.</p>
+                    <ul class="tags"><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+                    <div class="project__links">
+                        <a href="https://github.com/vanscode-CM/Calcul-IMC" target="_blank" rel="noopener noreferrer" class="link">Code <i class="ri-github-line" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="python" data-reveal>
+                    <div class="project__icon" style="--tint: #ff4d4d"><i class="ri-youtube-line" aria-hidden="true"></i></div>
+                    <h3>Téléchargeur YouTube</h3>
+                    <p>Application de téléchargement de vidéos YouTube en ligne de commande, rapide et robuste.</p>
+                    <ul class="tags"><li>Python</li><li>yt-dlp</li></ul>
+                </article>
+
+                <article class="project" data-cat="python" data-reveal>
+                    <div class="project__icon" style="--tint: #8b7cff"><i class="ri-window-line" aria-hidden="true"></i></div>
+                    <h3>Interface graphique Python</h3>
+                    <p>Interface utilisateur simple et efficace réalisée avec Tkinter pour illustrer des concepts d'interaction.</p>
+                    <ul class="tags"><li>Python</li><li>Tkinter</li></ul>
+                </article>
+            </div>
+
+            <!-- Activité GitHub (données réelles, chargées en direct) -->
+            <div class="gh" data-reveal>
+                <div class="gh__head">
+                    <h3><i class="ri-github-fill" aria-hidden="true"></i> Activité récente sur GitHub</h3>
+                    <a href="https://github.com/vanscode-CM" target="_blank" rel="noopener noreferrer" class="link">Tout voir <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+                </div>
+                <ul class="gh__list" id="gh-list" aria-live="polite" aria-busy="true">
+                    <li class="gh__skeleton"></li><li class="gh__skeleton"></li><li class="gh__skeleton"></li>
+                    <li class="gh__skeleton"></li><li class="gh__skeleton"></li><li class="gh__skeleton"></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Méthode -->
+        <section class="method wrap section" id="methode">
+            <h2 class="section__title" data-reveal>Comment je travaille</h2>
+            <div class="steps">
+                <svg class="steps__line" viewBox="0 0 1000 4" preserveAspectRatio="none" aria-hidden="true">
+                    <line x1="0" y1="2" x2="1000" y2="2" />
+                </svg>
+                <ol class="steps__list">
+                    <li class="step" data-reveal>
+                        <span class="step__icon"><i class="ri-chat-search-line" aria-hidden="true"></i></span>
+                        <h3>Comprendre</h3>
+                        <p>J'écoute le besoin, les utilisateurs et les contraintes avant d'écrire une ligne.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__icon"><i class="ri-git-branch-line" aria-hidden="true"></i></span>
+                        <h3>Concevoir</h3>
+                        <p>Maquettes, modèle de données et architecture d'API, validés avec vous.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__icon"><i class="ri-code-s-slash-line" aria-hidden="true"></i></span>
+                        <h3>Développer</h3>
+                        <p>Livraisons fréquentes, code propre et testé, retours intégrés au fil de l'eau.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__icon"><i class="ri-rocket-2-line" aria-hidden="true"></i></span>
+                        <h3>Déployer</h3>
+                        <p>Mise en ligne, suivi et améliorations après le lancement.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact wrap section" id="contact">
+            <div class="contact__intro" data-reveal>
+                <h2 class="section__title">Un projet en tête ?</h2>
+                <p>Parlons-en. Je réponds généralement sous 24 heures.</p>
+
+                <ul class="channels">
+                    <li>
+                        <a href="mailto:guyyvan42@gmail.com" class="channel">
+                            <i class="ri-mail-line" aria-hidden="true"></i>
+                            <span><small>Email</small>guyyvan42@gmail.com</span>
+                        </a>
+                        <button type="button" class="icon-btn" id="copy-email" data-email="guyyvan42@gmail.com" aria-label="Copier l'adresse email">
+                            <i class="ri-file-copy-line" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/237688436397" target="_blank" rel="noopener noreferrer" class="channel">
+                            <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                            <span><small>WhatsApp</small>+237 652 033 289</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="socials">
+                    <a href="https://github.com/vanscode-CM" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub"><i class="ri-github-fill" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/yvan-guy-9a68ab346" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="LinkedIn"><i class="ri-linkedin-fill" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/yvan_guy75549" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="X (Twitter)"><i class="ri-twitter-x-fill" aria-hidden="true"></i></a>
+                    <a href="https://t.me/Vanscode" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Telegram"><i class="ri-telegram-fill" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <form class="form" id="contact-form" novalidate data-reveal>
+                <input type="hidden" name="access_key" value="601b488d-521c-489b-b1ed-5b9d3cdb2a8b" />
+                <input type="hidden" name="subject" value="Nouveau message depuis le portfolio VansCode" />
+                <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <div class="field">
+                    <label for="f-name">Nom</label>
+                    <input id="f-name" type="text" name="name" autocomplete="name" required />
+                    <p class="field__error" id="f-name-err"></p>
+                </div>
+                <div class="field">
+                    <label for="f-email">Email</label>
+                    <input id="f-email" type="email" name="email" autocomplete="email" required />
+                    <p class="field__error" id="f-email-err"></p>
+                </div>
+                <div class="field">
+                    <label for="f-msg">Message</label>
+                    <textarea id="f-msg" name="message" rows="5" required></textarea>
+                    <p class="field__error" id="f-msg-err"></p>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block" id="submit-btn">
+                    <span class="btn__label">Envoyer le message</span>
+                    <i class="ri-send-plane-2-line" aria-hidden="true"></i>
+                </button>
+                <p class="form__status" id="form-status" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer__inner">
+            <a href="#top" class="logo"><span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>VansCode</a>
+            <nav class="footer__links" aria-label="Liens secondaires">
+                <a href="room.html">Version 3D</a>
+                <a href="index.html">Revoir l'intro</a>
+                <a href="https://github.com/vanscode-CM" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </nav>
+            <p>&copy; <span id="year">2026</span> VansCode. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- Librairies 3D -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <script src="gsap.min.js"></script>
-    <script src="chart.js"></script>
-    <script src="script.js"></script>
-    <!-- Script d'expérience 3D -->
-    <script src="vanscode3d.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

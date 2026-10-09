@@ -268,11 +268,20 @@ $(window).on('load', function () {
             }});
     }
 
-    $("#power_button").click(function (e) { 
+    function togglePower() {
         if (!isBooted) {
             bootSystem();
         } else {
             shutdownSystem();
+        }
+    }
+
+    $("#power_button").on("click", togglePower);
+    // Accessibilité : le bouton d alimentation fonctionne aussi au clavier
+    $("#power_button").on("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            togglePower();
         }
     });
 

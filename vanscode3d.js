@@ -6,6 +6,14 @@ let roomModel;
 let clickableObjects = [];
 let currentTarget = 'global';
 
+// --- Animations ---
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const medalObjs = [];          // médailles flottantes (CSS3D)
+let pcGlowLight = null;        // lumière pulsante de l'écran PC
+const parallax = { x: 0, y: 0 }; // décalage caméra suivant la souris (vue globale)
+const parallaxTarget = { x: 0, y: 0 };
+let introDone = false;
+
 // Variables globales pour le calibrateur
 let compPanelObj = null;
 let compHitZone = null;
@@ -73,6 +81,8 @@ function init3D() {
     });
 
     setupNavigation();
+    introFlyIn();
+    if (REDUCED_MOTION) introDone = true;
     animate();
 }
 
@@ -83,6 +93,7 @@ function createLights() {
     const pcGlow = new THREE.PointLight(0x00aaff, 1, 3);
     pcGlow.position.set(-1.1, 0.765, 1.442);
     sceneWebGL.add(pcGlow);
+    pcGlowLight = pcGlow;
 
     const roomLight = new THREE.PointLight(0xffeebb, 0.8, 10);
     roomLight.position.set(0, 2, 1.5);
@@ -214,8 +225,6 @@ function createMedals() {
     const spacingY = 0.3;
     const spacingZ = 0.3;
 
-    const loader = new THREE.TextureLoader();
-
     skills.forEach((skill, index) => {
         const row = index % 2; 
         const col = Math.floor(index / 2); 
@@ -241,6 +250,13 @@ function createMedals() {
         cssObj.scale.set(0.002, 0.002, 0.002);
         
         sceneCSS.add(cssObj);
+        medalObjs.push({ obj: cssObj, baseY: pos.y, phase: index * 0.9 });
+
+        // Apparition en "pop" élastique, décalée pour chaque médaille
+        if (!REDUCED_MOTION) {
+            cssObj.scale.set(0, 0, 0);
+            gsap.to(cssObj.scale, { x: 0.002, y: 0.002, z: 0.002, duration: 1.2, delay: 2 + index * 0.15, ease: "elastic.out(1, 0.5)" });
+        }
 
         const hitZone = createClickZone(new THREE.PlaneGeometry(0.25, 0.25), pos, new THREE.Euler(0, Math.PI/2, 0), skill.name, 'wall');
         hitZone.userData.skill = skill.name;
@@ -298,7 +314,9 @@ function onWindowResize() {
 function onMouseMove(event) {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    
+    parallaxTarget.x = mouse.x;
+    parallaxTarget.y = mouse.y;
+
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(clickableObjects);
     
@@ -421,6 +439,8 @@ function goToView(viewId) {
         btn.classList.add('opacity-100', 'pointer-events-auto');
     }
 
+    gsap.killTweensOf(camera.position);
+    gsap.killTweensOf(camera.userData.targetObj);
     gsap.to(camera.position, {
         x: target.pos.x,
         y: target.pos.y,
@@ -428,6 +448,7 @@ function goToView(viewId) {
         duration: 1.5,
         ease: "power3.inOut"
     });
+    revealPanel(viewId);
 
     gsap.to(camera.userData.targetObj, {
         x: target.lookAt.x,
@@ -439,6 +460,41 @@ function goToView(viewId) {
             camera.lookAt(camera.userData.targetObj);
         }
     });
+}
+
+// Animation d'entrée du contenu d'un panneau quand la caméra arrive dessus
+function revealPanel(viewId) {
+    if (REDUCED_MOTION) return;
+    const sel = {
+        pc: ['#hero h1 span, #hero p, #hero .flex.space-x-4 a, #hero .test', 0.08],
+        tablet: ['#projets h2, #projets > div > p, #projets .group', 0.12],
+        phone: ['#contact a.flex, #contact form > *', 0.07],
+        wall: ['#competences .chart-container', 0.1]
+    }[viewId];
+    if (!sel) return;
+    const els = document.querySelectorAll(sel[0]);
+    gsap.killTweensOf(els);
+    gsap.fromTo(els,
+        { opacity: 0, y: 30, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: sel[1], delay: 1.0, ease: "power3.out", clearProps: "transform,opacity" }
+    );
+}
+
+// Vol d'entrée de la caméra + respiration de la lumière de l'écran
+function introFlyIn() {
+    if (REDUCED_MOTION) { introDone = true; return; }
+    const end = { pos: VIEWS.global.pos.clone() };
+    camera.position.set(end.pos.x + 2.5, end.pos.y + 1.2, end.pos.z + 3);
+    gsap.to(camera.position, {
+        x: end.pos.x, y: end.pos.y, z: end.pos.z,
+        duration: 3, ease: "power3.out",
+        onUpdate: () => camera.lookAt(camera.userData.targetObj),
+        onComplete: () => { introDone = true; }
+    });
+    // Respiration de la lumière de l'écran PC
+    if (pcGlowLight) {
+        gsap.to(pcGlowLight, { intensity: 2.2, duration: 1.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    }
 }
 
 function setupNavigation() {
@@ -471,11 +527,25 @@ function setupNavigation() {
 function animate() {
     requestAnimationFrame(animate);
 
-    if(currentTarget === 'global') {
+    if(currentTarget === 'global' && introDone && !gsap.isTweening(camera.position)) {
         const t = Date.now() * 0.001;
-        camera.position.z = VIEWS.global.pos.z + Math.sin(t * 0.5) * 0.05;
-        camera.position.y = VIEWS.global.pos.y + Math.cos(t * 0.3) * 0.02;
+        // Parallaxe douce vers la souris
+        parallax.x += (parallaxTarget.x - parallax.x) * 0.04;
+        parallax.y += (parallaxTarget.y - parallax.y) * 0.04;
+        const k = REDUCED_MOTION ? 0 : 1;
+        camera.position.x = VIEWS.global.pos.x + parallax.x * 0.25 * k;
+        camera.position.z = VIEWS.global.pos.z + Math.sin(t * 0.5) * 0.05 * k;
+        camera.position.y = VIEWS.global.pos.y + Math.cos(t * 0.3) * 0.02 * k + parallax.y * 0.1 * k;
         camera.lookAt(camera.userData.targetObj);
+    }
+
+    // Médailles : lévitation + légère oscillation
+    if (!REDUCED_MOTION && medalObjs.length) {
+        const t = Date.now() * 0.001;
+        medalObjs.forEach(m => {
+            m.obj.position.y = m.baseY + Math.sin(t * 1.2 + m.phase) * 0.012;
+            m.obj.rotation.x = Math.sin(t * 0.8 + m.phase) * 0.08;
+        });
     }
 
     rendererWebGL.render(sceneWebGL, camera);
